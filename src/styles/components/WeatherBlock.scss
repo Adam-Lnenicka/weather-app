@@ -1,0 +1,28 @@
+p{
+    color:rgb(61, 61, 61);
+}
+
+.weather-block-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.weather-block{
+    padding: 2em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 0.4rem;
+    margin: 1em 0;
+
+
+    &__weekday{
+        font-size: 3rem;
+        font-weight: 800;
+    }
+
+    img{
+        padding: 0.6rem;
+        border-radius: 50%;
+        background-color: rgb(230, 235, 252);
+    }
+}

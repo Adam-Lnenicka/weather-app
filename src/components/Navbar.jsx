@@ -1,0 +1,14 @@
+import React from "react"
+import {BrowserRouter as Router,  Link,} from "react-router-dom";
+
+function App() {   
+    return (
+        <div>     
+            <Router>
+                <Link to="/" >Home</Link>
+            </Router>
+        </div>
+    )
+}
+
+export default App
