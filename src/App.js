@@ -6,8 +6,7 @@ function App() {
 
   const [weatherInfo, setWeatherInfo] = useState({})
   const [location, setLocation] = useState('Prague')
-
-
+  const [block, setBlock] = useState(4)
 
   const showWeather = async (e) =>{
 
@@ -43,21 +42,25 @@ const selectDeparture = (e) => {
   )
 } 
 
+const handleBlock = () =>{
+  setBlock(block => block + 4)
+}
+
 
   return (
     <div>
     <div>
       {!(Object.keys(weatherInfo).length === 0 && weatherInfo.constructor === Object) ?
           <div>
-            {/* <div> {weatherInfo.name} </div>
-            <div> {weatherInfo.base} </div>
-            <div> {weatherInfo.wind.speed} </div> */}
+
             <div> {weatherInfo.city.name} </div> 
-            <div> {weatherInfo.list[0].wind.deg} </div>
-            <div> {weatherInfo.map((i, dt) =>{
+            {/* <div> {weatherInfo.list[0].wind.deg} </div> */}
+            <div> {weatherInfo.list.slice(0, block).map((i, dt) =>{
+              return(
               <div key={dt}>
-                <div> {i.list.wind.deg} </div>
+                <div> {i.wind.deg} </div>
               </div>
+              )
             })} 
             </div>
           </div>
@@ -65,12 +68,13 @@ const selectDeparture = (e) => {
       }
     </div>
 
+    <button onClick={handleBlock}>Display Later Times</button>
+
     <input onChange={selectDeparture}></input>
 
     <div>
     <label className="label" htmlFor="location"><strong>Location </strong></label>
-    <select className="form-control form-control-sm w-100" name="location" onChange={selectDeparture}>
-      <option>Popular locations</option>
+    <select className="form-control form-control-sm w-100" name="location" placeholder="select" onChange={selectDeparture}>
       <option value="Berlin">Berlin</option>
       <option value="Warsaw">Warsaw</option>
       <option value="London">London</option>
