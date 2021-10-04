@@ -34,7 +34,7 @@ useEffect(() => {
   showWeather()
 },[location]);
 
-const selectDeparture = (e) => {
+const selectLocation = (e) => {
   setLocation(
     e.target.value
   )
@@ -58,12 +58,13 @@ const handlePrevBlock = () =>{
     <div>
         <div className="banner">
             <h1>Weather App</h1>
-            <input type="text" aria-label="searchbar" placeholder="&#xF002;  Search Location" name="searchbar" onChange={selectDeparture} style={{fontFamily:'Arial, FontAwesome'}} />
+            <input type="text" aria-label="searchbar" placeholder="&#xF002;  S
+            earch Location" name="searchbar" onChange={selectLocation} style={{fontFamily:'Arial, FontAwesome'}} />
         </div>
     <div>
     <div className="dropdown">
         <label className="label" htmlFor="location">Select from popular locations</label>
-        <select name="location" value="location" onChange={selectDeparture}>
+        <select name="location" onChange={selectLocation}>
             <option value="London">London</option>
             <option value="Berlin">Berlin</option>
             <option value="Warsaw">Warsaw</option>
