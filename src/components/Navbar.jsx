@@ -3,7 +3,7 @@ import {BrowserRouter as Router,  Link,} from "react-router-dom";
 
 function App() {   
     return (
-        <div>     
+        <div className="navbar">     
             <Router>
                 <Link to="/" >Home</Link>
             </Router>

@@ -4,15 +4,15 @@ import WeatherBlock from '../components/WeatherBlock'
 function Home() {
 
   const [weatherInfo, setWeatherInfo] = useState({})
-  const [location, setLocation] = useState('Prague')
-  const [block, setBlock] = useState(4)
+  const [location, setLocation] = useState('London')
+  const [block, setBlock] = useState(3)
   const [prevBlock, setPrevBlock] = useState(0)
 
 
   const showWeather = async () =>{
 
     const apiKey = 'f795afb3d4db7993e671d6dc9352d53d'
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}`
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=${apiKey}`
  
     try{    
       const response = await fetch(url)
@@ -41,25 +41,41 @@ const selectDeparture = (e) => {
 } 
 
 const handleBlock = () =>{
-  setBlock(block => block + 3)
-  setPrevBlock(prevBlock => prevBlock + 3)
+  setBlock(block => block + 2)
+  setPrevBlock(prevBlock => prevBlock + 2)
 }
 
 const handlePrevBlock = () =>{
 
-    if (block > 5) {
-    setBlock(block => block -3)
-    setPrevBlock(prevBlock => prevBlock -3)
+    if (block > 4) {
+    setBlock(block => block -2)
+    setPrevBlock(prevBlock => prevBlock -2)
 
     }
 }
 
   return (
     <div>
+        <div className="banner">
+            <h1>Weather App</h1>
+            <input type="text" aria-label="searchbar" placeholder="&#xF002;  Search Location" name="searchbar" onChange={selectDeparture} style={{fontFamily:'Arial, FontAwesome'}} />
+        </div>
     <div>
+    <div className="dropdown">
+        <label className="label" htmlFor="location">Select from popular locations</label>
+        <select name="location" value="location" onChange={selectDeparture}>
+            <option value="London">London</option>
+            <option value="Berlin">Berlin</option>
+            <option value="Warsaw">Warsaw</option>
+            <option value="London">London</option>
+            <option value="Prague">Prague</option>
+        </select>
+    </div>
+
+    
       {!(Object.keys(weatherInfo).length === 0 && weatherInfo.constructor === Object) ?
           <div>
-            <div> {weatherInfo.city.name} </div> 
+            <h2> {weatherInfo.city.name} </h2> 
             <div className="weather-block-section"> {weatherInfo.list.slice(prevBlock, block).map((i, dt) =>{
               return(
                 <WeatherBlock 
@@ -81,23 +97,11 @@ const handlePrevBlock = () =>{
         : <></>
       }
     </div>
+    <div className="button-section">
+        <button onClick={handlePrevBlock}><i className="fas fa-chevron-left"></i>Previous</button>
+        <button onClick={handleBlock}>Next<i className="fas fa-chevron-right"></i></button>
+    </div>
 
-    <button onClick={handleBlock}>Display Later Times</button>
-    <button onClick={handlePrevBlock}>Display Prev Times</button>
-
-
-    <input onChange={selectDeparture}></input>
-
-    <div>
-        <label className="label" htmlFor="location"><strong>Location </strong></label>
-        <select name="location"  onChange={selectDeparture}>
-        <option value="" disabled selected>Select your location</option>
-            <option value="Berlin">Berlin</option>
-            <option value="Warsaw">Warsaw</option>
-            <option value="London">London</option>
-            <option value="Prague">Prague</option>
-        </select>
-        </div>
     </div>
 
   );

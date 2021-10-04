@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+}
+
+input, select{
+    padding: 0.5em 1em;
+    border-radius: 0.3rem;
+    border:$clr-light-grey solid 2px;
+    max-width: 400px;
+}
+
+.banner{
+    background-image: url("https://images.unsplash.com/photo-1468276311594-df7cb65d8df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"),;
+    min-height: 40vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 10%;
+}
+
+.dropdown{
+    background-color:$clr-light-blue;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 10%;
+
+    label{
+        font-size: 0.7rem;
+        margin:0.5rem 0;
+    }
+
+    select, option{
+        color: $clr-medium-grey;
+        font-weight: 500;
+        cursor: pointer;
+    }
+}
+
+.weather-block-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding:0 10%;
+
+}
+
+.weather-block{
+    padding: 2em;
+    box-shadow: 0 3px 10px $clr-medium-grey;
+    border-radius: 0.4rem;
+    margin: 1em 0;
+    width: 100%;
+
+    &__main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 1em;
+
+        p{
+            margin: 0.3em
+        }
+    }
+
+
+    &__weekday{
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: $clr-dark-blue;
+    }
+
+    &__time{
+        color:$clr-orange;
+        font-size: 2rem;
+        font-weight: 800;
+    }
+
+    &__description{
+        text-transform: uppercase;
+    }
+
+    &__temperature{
+        font-weight: 900;
+    }
+
+    img{
+        padding: 0.6rem;
+        border-radius: 50%;
+        background-color: $clr-light-blue;
+        margin-bottom: 1rem;
+    }
+
+    &__wind-section{
+        background-color: $clr-dark-white;
+        padding: 0.4rem;
+        border-radius: 0.2rem;
+    }
+}
+
+.navbar{
+    background-color: $clr-dark-blue;
+    padding: 1rem 10%;
+    a{
+        text-decoration: none;
+        color: $clr-white;
+        font-weight: 700;
+        font-size: 0.7rem;
+    }
+}
+
+.button-section{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    button{
+        margin: 0.5rem
+    }
+}
+
+@media(min-width: 800px){
+    .weather-block{
+        width: 30%
+    }
+
+}
