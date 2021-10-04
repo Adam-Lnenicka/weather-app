@@ -58,8 +58,8 @@ const handlePrevBlock = () =>{
     <div>
         <div className="banner">
             <h1>Weather App</h1>
-            <input type="text" aria-label="searchbar" placeholder="&#xF002;  S
-            earch Location" name="searchbar" onChange={selectLocation} style={{fontFamily:'Arial, FontAwesome'}} />
+            <input type="text" aria-label="searchbar" placeholder="&#xF002;  Search Location" 
+            name="searchbar" onChange={selectLocation} style={{fontFamily:'Arial, FontAwesome'}} />
         </div>
     <div>
     <div className="dropdown">
